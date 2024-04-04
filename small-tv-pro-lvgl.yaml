@@ -1,0 +1,280 @@
+esphome:
+  name: geekmagic-hilo
+  friendly_name: geekmagic-hilo
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: VERBOSE
+  logs:
+    #lvgl.component: VERBOSE
+    light.component: ERROR
+    light.output: ERROR
+    number.component: ERROR
+    ledc.output: ERROR
+    template.number: ERROR
+
+
+
+  baud_rate: 0 #no hardware serial connected to USB - unless using the internal programming header
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: 
+
+ota:
+  password: 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: 
+    password: 
+
+captive_portal:
+
+external_components:
+ - source: github://clydebarrow/esphome@lvgl
+   components: [ lvgl ]
+
+# Define a PWM output on the ESP32
+output:
+  - platform: ledc
+    pin: GPIO25
+    inverted: True
+    id: backlight_pwm
+
+# Define a monochromatic, dimmable light for the backlight
+light:
+  - platform: monochromatic
+    output: backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    restore_mode: ALWAYS_ON
+
+
+esp32_touch:
+ # setup_mode: true
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  interface: hardware
+  id: spihwd
+
+color:
+  - id: my_red
+    red: 100%
+    green: 0%
+    blue: 0%
+  - id: my_orange
+    red: 100%
+    green: 50%
+    blue: 0%
+  - id: my_yellow
+    red: 100%
+    green: 100%
+    blue: 0%
+  - id: my_green
+    red: 0%
+    green: 100%
+    blue: 0%
+  - id: my_blue
+    red: 0%
+    green: 0%
+    blue: 100%
+  - id: my_teal
+    red: 0%
+    green: 100%
+    blue: 100%
+  - id: my_gray
+    red: 70%
+    green: 70%
+    blue: 70%
+  - id: my_white
+    red: 100%
+    green: 100%
+    blue: 100%
+  - id: my_black
+    red: 0%
+    green: 0%
+    blue: 0%
+
+font:
+  - file: "gfonts://Roboto"
+    id: Roboto_48
+    size: 48
+  - file: "gfonts://Roboto"
+    id: Roboto_36
+    size: 36
+  - file: "gfonts://Roboto"
+    id: Roboto_24
+    size: 24
+  - file: "gfonts://Roboto"
+    id: Roboto_12
+    size: 12
+
+display:
+  - platform: ili9xxx
+    id: lcd_display
+    model: st7789v
+    spi_id: spihwd
+    data_rate: 20MHz #oringal device uses 20mhz - 40 is default and works - does not work at 80mhz
+    #cs_pin: GPIO03 #CS pin is connected to gnd I believe
+    dc_pin: GPIO02
+    reset_pin: GPIO04
+    spi_mode: MODE3   #since no cs pin default is mode0
+    dimensions:
+      width: 240
+      height: 240
+      offset_height: 0
+      offset_width: 0
+    invert_colors: true
+    update_interval: never
+    auto_clear_enabled: false
+
+time:
+  - platform: sntp
+    id: time_comp
+    on_time_sync:
+      then:
+        - script.execute: time_update
+
+interval:
+  - interval: 5s
+    then:
+      - script.execute: time_update
+
+script:
+  - id: time_update
+    then:
+      - lvgl.indicator.line.update:
+          id: minute_hand
+          value: !lambda |-
+            return id(time_comp).now().minute;
+      - lvgl.indicator.line.update:
+          id: hour_hand
+          value: !lambda |-
+            auto now = id(time_comp).now();
+            return std::fmod(now.hour, 12) * 60 + now.minute;
+      - lvgl.label.update:
+          id: date_label
+          text: !lambda |-
+            static const char * const mon_names[] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+            static char date_buf[8];
+            auto now = id(time_comp).now();
+            snprintf(date_buf, sizeof(date_buf), "%s %2d", mon_names[now.month-1], now.day_of_month);
+            return date_buf;
+      - lvgl.label.update:
+          id: day_label
+          text: !lambda |-
+            static const char * const day_names[] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+            return day_names[id(time_comp).now().day_of_week-1];
+
+
+lvgl:
+  log_level: INFO
+  color_depth: 8
+  bg_color: 0x0F0F0F
+  text_font: unscii_8
+  align: center
+  style_definitions:
+    - id: date_style
+      text_font: unscii_8
+      align: center
+      text_color: 0x000000
+      bg_opa: cover
+      radius: 4
+      pad_all: 2
+  widgets:
+    - obj: # Clock container
+        height: size_content
+        width: size_content
+        widgets:
+          - meter: # Gradient color  arc
+              height: 160
+              width: 160
+              align: center
+              bg_color: 0
+              scales:
+                angle_range: 360
+                rotation: 255
+                range_from: 0
+                range_to: 12
+                ticks:
+                  width: 35
+                  count: 13
+                  length: 8
+                indicators:
+                  - ticks:
+                      local: true
+                      start_value: 0
+                      end_value: 12
+                      color_start: 0xFF0000
+                      color_end: 0x0000FF
+          - meter:
+              height: 160
+              width: 160
+              align: center
+                    
+              bg_opa: TRANSP
+              text_color: 0xFFFFFF
+              scales:
+                - ticks:
+                    width: 1
+                    count: 61
+                    length: 10
+                    color: 0xFFFFFF
+                  range_from: 0
+                  range_to: 60
+                  angle_range: 360
+                  rotation: 270
+                  indicators:
+                    - line:
+                        id: minute_hand
+                        width: 3
+                        color: 0xE0E0E0
+                        r_mod: -1
+
+                - 
+                  angle_range: 330
+                  rotation: 300
+                  range_from: 1
+                  range_to: 12
+                  ticks:
+                    width: 1
+                    count: 12
+                    length: 1
+                    major:
+                      stride: 1
+                      width: 4
+                      length: 8
+                      color: 0xC0C0C0
+                      label_gap: 6
+
+                - angle_range: 360
+                  rotation: 270
+                  range_from: 0
+                  range_to: 720
+                  indicators:
+                    - line:
+                        id: hour_hand
+                        width: 4
+                        color: 0xA0A0A0
+                        r_mod: -20
+          - label:
+              styles: date_style
+              id: day_label
+              y: -20
+          - label:
+              id: date_label
+              styles: date_style
+              y: +20
