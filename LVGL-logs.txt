@@ -1,0 +1,260 @@
+[13:12:41][C][logger:166]: Logger:
+[13:12:41][C][logger:167]:   Level: VERBOSE
+[13:12:41][C][logger:169]:   Log Baud Rate: 0
+[13:12:41][C][logger:170]:   Hardware UART: UART0
+[13:12:41][C][logger:174]:   Level for 'light.component': ERROR
+[13:12:41][C][logger:174]:   Level for 'light.output': ERROR
+[13:12:41][C][logger:174]:   Level for 'number.component': ERROR
+[13:12:41][C][logger:174]:   Level for 'ledc.output': ERROR
+[13:12:41][C][logger:174]:   Level for 'template.number': ERROR
+[13:12:41][C][spi:068]: SPI bus:
+[13:12:41][C][spi:069]:   CLK Pin: GPIO18
+[13:12:41][C][spi:070]:   SDI Pin: 
+[13:12:41][C][spi:071]:   SDO Pin: GPIO23
+[13:12:41][C][spi:076]:   Using HW SPI: SPI
+[13:12:41][C][ili9xxx:075]: ili9xxx
+[13:12:41][C][ili9xxx:075]:   Rotations: 0 °
+[13:12:41][C][ili9xxx:075]:   Dimensions: 240px x 240px
+[13:12:41][C][ili9xxx:076]:   Width Offset: 0
+[13:12:41][C][ili9xxx:077]:   Height Offset: 0
+[13:12:41][C][ili9xxx:086]:   Color mode: 8bit 332 mode
+[13:12:41][C][ili9xxx:092]:   Data rate: 20MHz
+[13:12:41][C][ili9xxx:094]:   Reset Pin: GPIO4
+[13:12:41][C][ili9xxx:096]:   DC Pin: GPIO2
+[13:12:41][C][ili9xxx:098]:   Color order: BGR
+[13:12:41][C][ili9xxx:099]:   Swap_xy: NO
+[13:12:41][C][ili9xxx:100]:   Mirror_x: NO
+[13:12:41][C][ili9xxx:101]:   Mirror_y: NO
+[13:12:41][C][ili9xxx:106]:   Update Interval: never
+[13:12:41][C][light:103]: Light 'Display Backlight'
+[13:12:41][C][light:105]:   Default Transition Length: 1.0s
+[13:12:41][C][light:106]:   Gamma Correct: 2.80
+[13:12:41][C][esp32_touch:073]: Config for ESP32 Touch Hub:
+[13:12:41][C][esp32_touch:074]:   Meas cycle: 8.19ms
+[13:12:41][C][esp32_touch:075]:   Sleep cycle: 27.31ms
+[13:12:41][C][esp32_touch:095]:   Low Voltage Reference: 0.5V
+[13:12:41][C][esp32_touch:115]:   High Voltage Reference: 2.7V
+[13:12:41][C][esp32_touch:135]:   Voltage Attenuation: 0V
+[13:12:41][C][esp32_touch:251]:   IIR Filter DISABLED
+[13:12:41][C][psram:020]: PSRAM:
+[13:12:41][C][psram:021]:   Available: NO
+[13:12:41][C][lvgl:376]: LVGL:
+[13:12:41][C][captive_portal:088]: Captive Portal:
+[13:12:41][C][sntp:055]: SNTP Time:
+[13:12:41][C][sntp:056]:   Server 1: '0.pool.ntp.org'
+[13:12:41][C][sntp:057]:   Server 2: '1.pool.ntp.org'
+[13:12:41][C][sntp:058]:   Server 3: '2.pool.ntp.org'
+[13:12:41][C][sntp:059]:   Timezone: 'HST10'
+[13:12:41][C][mdns:115]: mDNS:
+[13:12:41][C][mdns:116]:   Hostname: geekmagic-hilo
+[13:12:41][V][mdns:117]:   Services:
+[13:12:41][V][mdns:119]:   - _esphomelib, _tcp, 6053
+[13:12:41][V][mdns:121]:     TXT: friendly_name = geekmagic-hilo
+[13:12:41][V][mdns:121]:     TXT: version = 2024.4.0-dev
+[13:12:41][V][mdns:121]:     TXT: mac = cc7b5ca729e0
+[13:12:41][V][mdns:121]:     TXT: platform = ESP32
+[13:12:41][V][mdns:121]:     TXT: board = esp32dev
+[13:12:41][V][mdns:121]:     TXT: network = wifi
+[13:12:41][V][mdns:121]:     TXT: api_encryption = Noise_NNpsk0_25519_ChaChaPoly_SHA256
+[13:12:41][C][ota:096]: Over-The-Air Updates:
+[13:12:41][C][ota:097]:   Address: geekmagic-hilo.local:3232
+[13:12:41][C][ota:100]:   Using Password.
+[13:12:41][C][ota:103]:   OTA version: 2.
+[13:12:41][C][api:139]: API Server:
+[13:12:41][C][api:140]:   Address: geekmagic-hilo.local:6053
+[13:12:41][C][api:142]:   Using noise encryption: YES
+[13:12:43][V][lvgl:038]: free 0x3ffb4b0c
+[13:12:43][V][lvgl:031]: allocate 7 - > 0x3ffb4b0c
+[13:12:43][V][lvgl:038]: free 0x3ffb3320
+[13:12:43][V][lvgl:031]: allocate 4 - > 0x3ffb3320
+[13:12:43][I][lvgl:000]: [Info]	(13.517, +5005)	 lv_obj_update_layout: Layout update begin 	(in lv_obj_pos.c line #314)
+[13:12:43][V][lvgl:047]: realloc 0x0: 92
+[13:12:43][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:43][V][lvgl:047]: realloc 0x0: 64
+[13:12:43][V][lvgl:031]: allocate 480 - > 0x3fff3d80
+[13:12:43][V][lvgl:047]: realloc 0x3ffe331c: 640
+[13:12:43][V][lvgl:031]: allocate 348 - > 0x3fff502c
+[13:12:43][V][lvgl:031]: allocate 396 - > 0x3fff2cd4
+[13:12:43][V][lvgl:038]: free 0x3ffe3e10
+[13:12:43][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:43][V][lvgl:038]: free 0x3ffe3e10
+[13:12:43][V][lvgl:031]: allocate 486 - > 0x3fff3160
+[13:12:43][V][lvgl:047]: realloc 0x3fff4cac: 648
+[13:12:43][V][lvgl:038]: free 0x3fff502c
+[13:12:43][V][lvgl:031]: allocate 474 - > 0x3fff3b90
+[13:12:43][V][lvgl:038]: free 0x3fff3d80
+[13:12:43][V][lvgl:031]: allocate 336 - > 0x3fff3468
+[13:12:43][V][lvgl:038]: free 0x3fff3468
+[13:12:43][V][lvgl:031]: allocate 390 - > 0x3fff3358
+[13:12:43][V][lvgl:038]: free 0x3fff3b90
+[13:12:43][V][lvgl:031]: allocate 348 - > 0x3fff3b00
+[13:12:43][V][lvgl:038]: free 0x3fff3358
+[13:12:43][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:43][V][lvgl:038]: free 0x3ffe3e10
+[13:12:43][V][lvgl:031]: allocate 474 - > 0x3fff3c6c
+[13:12:43][V][lvgl:038]: free 0x3fff3c6c
+[13:12:43][V][lvgl:031]: allocate 30 - > 0x3ffe333c
+[13:12:43][V][lvgl:038]: free 0x3ffe333c
+[13:12:43][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:43][V][lvgl:038]: free 0x3fff3b00
+[13:12:43][V][lvgl:031]: allocate 36 - > 0x3ffe2c48
+[13:12:43][V][lvgl:455]: flush_cb, area=74/48, 92/60 took 12ms
+[13:12:43][V][lvgl:038]: free 0x3ffe3e10
+[13:12:43][V][lvgl:031]: allocate 480 - > 0x3fff3968
+[13:12:43][V][lvgl:038]: free 0x3ffe2c48
+[13:12:43][V][lvgl:031]: allocate 348 - > 0x3fff3468
+[13:12:43][V][lvgl:038]: free 0x3fff3468
+[13:12:43][V][lvgl:031]: allocate 474 - > 0x3fff3358
+[13:12:43][V][lvgl:038]: free 0x3fff3968
+[13:12:43][V][lvgl:031]: allocate 336 - > 0x3fff4778
+[13:12:43][V][lvgl:038]: free 0x3fff4778
+[13:12:43][V][lvgl:031]: allocate 390 - > 0x3fff49e8
+[13:12:43][V][lvgl:038]: free 0x3fff3358
+[13:12:43][V][lvgl:031]: allocate 348 - > 0x3fff3358
+[13:12:43][V][lvgl:038]: free 0x3fff49e8
+[13:12:43][V][lvgl:031]: allocate 474 - > 0x3fff34c4
+[13:12:43][V][lvgl:038]: free 0x3fff34c4
+[13:12:43][V][lvgl:031]: allocate 30 - > 0x3ffe3ef4
+[13:12:43][V][lvgl:038]: free 0x3ffe3ef4
+[13:12:43][V][lvgl:031]: allocate 48 - > 0x3ffe331c
+[13:12:43][V][lvgl:038]: free 0x3fff3358
+[13:12:43][V][lvgl:031]: allocate 36 - > 0x3ffe3ef4
+[13:12:43][V][lvgl:455]: flush_cb, area=62/102, 66/28 took 4ms
+[13:12:43][V][lvgl:038]: free 0x3ffe3b6c
+[13:12:43][V][lvgl:038]: free 0x3fff4cac
+[13:12:43][V][lvgl:038]: free 0x3fff3160
+[13:12:43][V][lvgl:038]: free 0x3ffe331c
+[13:12:43][V][lvgl:038]: free 0x3ffe3ef4
+[13:12:43][V][lvgl:038]: free 0x3fff2cd4
+[13:12:43][W][component:232]: Component lvgl took a long time for an operation (164 ms).
+[13:12:43][W][component:233]: Components should block for at most 30 ms.
+[13:12:48][V][lvgl:038]: free 0x3ffb4b0c
+[13:12:48][V][lvgl:031]: allocate 7 - > 0x3ffb4b0c
+[13:12:48][V][lvgl:038]: free 0x3ffb3320
+[13:12:48][V][lvgl:031]: allocate 4 - > 0x3ffb3320
+[13:12:48][I][lvgl:000]: [Info]	(18.519, +5002)	 lv_obj_update_layout: Layout update begin 	(in lv_obj_pos.c line #314)
+[13:12:48][V][lvgl:047]: realloc 0x0: 92
+[13:12:48][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:48][V][lvgl:047]: realloc 0x0: 64
+[13:12:48][V][lvgl:031]: allocate 480 - > 0x3ffe344c
+[13:12:48][V][lvgl:047]: realloc 0x3ffe2fd4: 640
+[13:12:48][V][lvgl:031]: allocate 348 - > 0x3fff3050
+[13:12:48][V][lvgl:031]: allocate 396 - > 0x3ffe363c
+[13:12:48][V][lvgl:038]: free 0x3ffe3e10
+[13:12:48][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:48][V][lvgl:038]: free 0x3ffe3e10
+[13:12:48][V][lvgl:031]: allocate 486 - > 0x3fff32ac
+[13:12:48][V][lvgl:047]: realloc 0x3ffe3870: 648
+[13:12:48][V][lvgl:038]: free 0x3fff3050
+[13:12:48][V][lvgl:031]: allocate 474 - > 0x3fff3050
+[13:12:48][V][lvgl:038]: free 0x3ffe344c
+[13:12:48][V][lvgl:031]: allocate 336 - > 0x3ffe344c
+[13:12:48][V][lvgl:038]: free 0x3ffe344c
+[13:12:48][V][lvgl:031]: allocate 390 - > 0x3ffe344c
+[13:12:48][V][lvgl:038]: free 0x3fff3050
+[13:12:48][V][lvgl:031]: allocate 348 - > 0x3fff2cd4
+[13:12:48][V][lvgl:038]: free 0x3ffe344c
+[13:12:48][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:48][V][lvgl:038]: free 0x3ffe3e10
+[13:12:48][V][lvgl:031]: allocate 474 - > 0x3ffe344c
+[13:12:48][V][lvgl:038]: free 0x3ffe344c
+[13:12:48][V][lvgl:031]: allocate 30 - > 0x3ffe3ef4
+[13:12:48][V][lvgl:038]: free 0x3ffe3ef4
+[13:12:48][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:48][V][lvgl:038]: free 0x3fff2cd4
+[13:12:48][V][lvgl:031]: allocate 36 - > 0x3ffe2668
+[13:12:48][V][lvgl:455]: flush_cb, area=74/48, 92/60 took 11ms
+[13:12:48][V][lvgl:038]: free 0x3ffe3e10
+[13:12:48][V][lvgl:031]: allocate 480 - > 0x3fff3050
+[13:12:48][V][lvgl:038]: free 0x3ffe2668
+[13:12:48][V][lvgl:031]: allocate 348 - > 0x3fff2cd4
+[13:12:48][V][lvgl:038]: free 0x3fff2cd4
+[13:12:48][V][lvgl:031]: allocate 474 - > 0x3fff3ab4
+[13:12:48][V][lvgl:038]: free 0x3fff3050
+[13:12:48][V][lvgl:031]: allocate 336 - > 0x3fff3050
+[13:12:48][V][lvgl:038]: free 0x3fff3050
+[13:12:48][V][lvgl:031]: allocate 390 - > 0x3fff2cd4
+[13:12:48][V][lvgl:038]: free 0x3fff3ab4
+[13:12:48][V][lvgl:031]: allocate 348 - > 0x3ffe344c
+[13:12:48][V][lvgl:038]: free 0x3fff2cd4
+[13:12:48][V][lvgl:031]: allocate 474 - > 0x3fff3ab4
+[13:12:48][V][lvgl:038]: free 0x3fff3ab4
+[13:12:48][V][lvgl:031]: allocate 30 - > 0x3ffe2668
+[13:12:48][V][lvgl:038]: free 0x3ffe2668
+[13:12:48][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:48][V][lvgl:038]: free 0x3ffe344c
+[13:12:48][V][lvgl:031]: allocate 36 - > 0x3ffe331c
+[13:12:48][V][lvgl:455]: flush_cb, area=62/102, 66/28 took 4ms
+[13:12:48][V][lvgl:038]: free 0x3ffe3b6c
+[13:12:48][V][lvgl:038]: free 0x3ffe3870
+[13:12:48][V][lvgl:038]: free 0x3fff32ac
+[13:12:48][V][lvgl:038]: free 0x3ffe3e10
+[13:12:48][V][lvgl:038]: free 0x3ffe331c
+[13:12:48][V][lvgl:038]: free 0x3ffe363c
+[13:12:48][W][component:232]: Component lvgl took a long time for an operation (162 ms).
+[13:12:48][W][component:233]: Components should block for at most 30 ms.
+[13:12:53][V][lvgl:038]: free 0x3ffb4b0c
+[13:12:53][V][lvgl:031]: allocate 7 - > 0x3ffb4b0c
+[13:12:53][V][lvgl:038]: free 0x3ffb3320
+[13:12:53][V][lvgl:031]: allocate 4 - > 0x3ffb3320
+[13:12:53][I][lvgl:000]: [Info]	(23.518, +4999)	 lv_obj_update_layout: Layout update begin 	(in lv_obj_pos.c line #314)
+[13:12:53][V][lvgl:047]: realloc 0x0: 92
+[13:12:53][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:53][V][lvgl:047]: realloc 0x0: 64
+[13:12:53][V][lvgl:031]: allocate 480 - > 0x3fff3050
+[13:12:53][V][lvgl:047]: realloc 0x3ffe331c: 640
+[13:12:53][V][lvgl:031]: allocate 348 - > 0x3ffe344c
+[13:12:53][V][lvgl:031]: allocate 396 - > 0x3ffe36d4
+[13:12:53][V][lvgl:038]: free 0x3ffe3e10
+[13:12:53][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:53][V][lvgl:038]: free 0x3ffe3e10
+[13:12:53][V][lvgl:031]: allocate 486 - > 0x3ffe3870
+[13:12:53][V][lvgl:047]: realloc 0x3fff3850: 648
+[13:12:53][V][lvgl:038]: free 0x3ffe344c
+[13:12:53][V][lvgl:031]: allocate 474 - > 0x3fff3700
+[13:12:53][V][lvgl:038]: free 0x3fff3050
+[13:12:53][V][lvgl:031]: allocate 336 - > 0x3fff2cd4
+[13:12:53][V][lvgl:038]: free 0x3fff2cd4
+[13:12:53][V][lvgl:031]: allocate 390 - > 0x3fff2cd4
+[13:12:53][V][lvgl:038]: free 0x3fff3700
+[13:12:53][V][lvgl:031]: allocate 348 - > 0x3ffe355c
+[13:12:53][V][lvgl:038]: free 0x3fff2cd4
+[13:12:53][V][lvgl:031]: allocate 42 - > 0x3ffe3e10
+[13:12:53][V][lvgl:038]: free 0x3ffe3e10
+[13:12:53][V][lvgl:031]: allocate 474 - > 0x3fff3050
+[13:12:53][V][lvgl:038]: free 0x3fff3050
+[13:12:53][V][lvgl:031]: allocate 30 - > 0x3ffe3ef4
+[13:12:53][V][lvgl:038]: free 0x3ffe3ef4
+[13:12:53][V][lvgl:031]: allocate 48 - > 0x3ffe3e10
+[13:12:53][V][lvgl:038]: free 0x3ffe355c
+[13:12:53][V][lvgl:031]: allocate 36 - > 0x3ffe2fd4
+[13:12:53][V][lvgl:455]: flush_cb, area=74/48, 92/60 took 12ms
+[13:12:53][V][lvgl:038]: free 0x3ffe3e10
+[13:12:53][V][lvgl:031]: allocate 480 - > 0x3ffe344c
+[13:12:53][V][lvgl:038]: free 0x3ffe2fd4
+[13:12:53][V][lvgl:031]: allocate 348 - > 0x3fff2cd4
+[13:12:53][V][lvgl:038]: free 0x3fff2cd4
+[13:12:53][V][lvgl:031]: allocate 474 - > 0x3fff3160
+[13:12:53][V][lvgl:038]: free 0x3ffe344c
+[13:12:53][V][lvgl:031]: allocate 336 - > 0x3ffe344c
+[13:12:53][V][lvgl:038]: free 0x3ffe344c
+[13:12:53][V][lvgl:031]: allocate 390 - > 0x3fff2cd4
+[13:12:53][V][lvgl:038]: free 0x3fff3160
+[13:12:53][V][lvgl:031]: allocate 348 - > 0x3fff3050
+[13:12:53][V][lvgl:038]: free 0x3fff2cd4
+[13:12:53][V][lvgl:031]: allocate 474 - > 0x3fff3c00
+[13:12:53][V][lvgl:038]: free 0x3fff3c00
+[13:12:53][V][lvgl:031]: allocate 30 - > 0x3ffe2668
+[13:12:53][V][lvgl:038]: free 0x3ffe2668
+[13:12:53][V][lvgl:031]: allocate 48 - > 0x3ffe3c18
+[13:12:53][V][lvgl:038]: free 0x3fff3050
+[13:12:53][V][lvgl:031]: allocate 36 - > 0x3ffe2c48
+[13:12:53][V][lvgl:455]: flush_cb, area=62/102, 66/28 took 4ms
+[13:12:53][V][lvgl:038]: free 0x3ffe3b6c
+[13:12:53][V][lvgl:038]: free 0x3fff3358
+[13:12:53][V][lvgl:038]: free 0x3ffe3870
+[13:12:53][V][lvgl:038]: free 0x3ffe3c18
+[13:12:53][V][lvgl:038]: free 0x3ffe2c48
+[13:12:53][V][lvgl:038]: free 0x3ffe36d4
+[13:12:53][W][component:232]: Component lvgl took a long time for an operation (167 ms).
+[13:12:53][W][component:233]: Components should block for at most 30 ms.
