@@ -1,0 +1,414 @@
+[13:32:39][C][logger:166]: Logger:
+[13:32:39][C][logger:167]:   Level: VERBOSE
+[13:32:39][C][logger:169]:   Log Baud Rate: 0
+[13:32:39][C][logger:170]:   Hardware UART: UART0
+[13:32:39][C][logger:174]:   Level for 'light.component': ERROR
+[13:32:39][C][logger:174]:   Level for 'light.output': ERROR
+[13:32:39][C][logger:174]:   Level for 'number.component': ERROR
+[13:32:39][C][logger:174]:   Level for 'ledc.output': ERROR
+[13:32:39][C][logger:174]:   Level for 'template.number': ERROR
+[13:32:39][C][spi:068]: SPI bus:
+[13:32:39][C][spi:069]:   CLK Pin: GPIO18
+[13:32:39][C][spi:070]:   SDI Pin: 
+[13:32:39][C][spi:071]:   SDO Pin: GPIO23
+[13:32:39][C][spi:076]:   Using HW SPI: SPI
+[13:32:39][C][ili9xxx:075]: ili9xxx
+[13:32:39][C][ili9xxx:075]:   Rotations: 0 °
+[13:32:39][C][ili9xxx:075]:   Dimensions: 240px x 240px
+[13:32:39][C][ili9xxx:076]:   Width Offset: 0
+[13:32:39][C][ili9xxx:077]:   Height Offset: 0
+[13:32:39][C][ili9xxx:086]:   Color mode: 8bit 332 mode
+[13:32:39][C][ili9xxx:092]:   Data rate: 20MHz
+[13:32:39][C][ili9xxx:094]:   Reset Pin: GPIO4
+[13:32:39][C][ili9xxx:096]:   DC Pin: GPIO2
+[13:32:39][C][ili9xxx:098]:   Color order: BGR
+[13:32:39][C][ili9xxx:099]:   Swap_xy: NO
+[13:32:39][C][ili9xxx:100]:   Mirror_x: NO
+[13:32:39][C][ili9xxx:101]:   Mirror_y: NO
+[13:32:39][C][ili9xxx:106]:   Update Interval: 1.0s
+[13:32:39][C][light:103]: Light 'Display Backlight'
+[13:32:39][C][light:105]:   Default Transition Length: 1.0s
+[13:32:39][C][light:106]:   Gamma Correct: 2.80
+[13:32:39][C][esp32_touch:073]: Config for ESP32 Touch Hub:
+[13:32:39][C][esp32_touch:074]:   Meas cycle: 8.19ms
+[13:32:39][C][esp32_touch:075]:   Sleep cycle: 27.31ms
+[13:32:39][C][esp32_touch:095]:   Low Voltage Reference: 0.5V
+[13:32:39][C][esp32_touch:115]:   High Voltage Reference: 2.7V
+[13:32:39][C][esp32_touch:135]:   Voltage Attenuation: 0V
+[13:32:39][C][esp32_touch:251]:   IIR Filter DISABLED
+[13:32:39][C][psram:020]: PSRAM:
+[13:32:39][C][psram:021]:   Available: NO
+[13:32:39][C][captive_portal:088]: Captive Portal:
+[13:32:39][C][sntp:055]: SNTP Time:
+[13:32:39][C][sntp:056]:   Server 1: '0.pool.ntp.org'
+[13:32:39][C][sntp:057]:   Server 2: '1.pool.ntp.org'
+[13:32:39][C][sntp:058]:   Server 3: '2.pool.ntp.org'
+[13:32:39][C][sntp:059]:   Timezone: 'HST10'
+[13:32:39][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:39][V][ili9xxx:233]: Doing multiple write
+[13:32:39][V][ili9xxx:279]: Data write took 82ms
+[13:32:39][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:39][W][component:233]: Components should block for at most 30 ms.
+[13:32:39][C][mdns:115]: mDNS:
+[13:32:39][C][mdns:116]:   Hostname: geekmagic-hilo
+[13:32:39][V][mdns:117]:   Services:
+[13:32:39][V][mdns:119]:   - _esphomelib, _tcp, 6053
+[13:32:39][V][mdns:121]:     TXT: friendly_name = geekmagic-hilo
+[13:32:39][V][mdns:121]:     TXT: version = 2024.4.0-dev
+[13:32:39][V][mdns:121]:     TXT: mac = cc7b5ca729e0
+[13:32:39][V][mdns:121]:     TXT: platform = ESP32
+[13:32:39][V][mdns:121]:     TXT: board = esp32dev
+[13:32:39][V][mdns:121]:     TXT: network = wifi
+[13:32:39][V][mdns:121]:     TXT: api_encryption = Noise_NNpsk0_25519_ChaChaPoly_SHA256
+[13:32:39][C][ota:096]: Over-The-Air Updates:
+[13:32:39][C][ota:097]:   Address: geekmagic-hilo.local:3232
+[13:32:39][C][ota:100]:   Using Password.
+[13:32:40][C][ota:103]:   OTA version: 2.
+[13:32:40][C][api:139]: API Server:
+[13:32:40][C][api:140]:   Address: geekmagic-hilo.local:6053
+[13:32:40][C][api:142]:   Using noise encryption: YES
+[13:32:40][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:40][V][ili9xxx:233]: Doing multiple write
+[13:32:40][V][ili9xxx:279]: Data write took 83ms
+[13:32:40][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:40][W][component:233]: Components should block for at most 30 ms.
+[13:32:41][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:41][V][ili9xxx:233]: Doing multiple write
+[13:32:41][V][ili9xxx:279]: Data write took 82ms
+[13:32:41][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:41][W][component:233]: Components should block for at most 30 ms.
+[13:32:42][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:42][V][ili9xxx:233]: Doing multiple write
+[13:32:42][V][ili9xxx:279]: Data write took 83ms
+[13:32:42][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:42][W][component:233]: Components should block for at most 30 ms.
+[13:32:43][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:43][V][ili9xxx:233]: Doing multiple write
+[13:32:43][V][ili9xxx:279]: Data write took 84ms
+[13:32:43][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:43][W][component:233]: Components should block for at most 30 ms.
+[13:32:44][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:44][V][ili9xxx:233]: Doing multiple write
+[13:32:44][V][ili9xxx:279]: Data write took 83ms
+[13:32:44][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:44][W][component:233]: Components should block for at most 30 ms.
+[13:32:45][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:45][V][ili9xxx:233]: Doing multiple write
+[13:32:45][V][ili9xxx:279]: Data write took 83ms
+[13:32:45][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:45][W][component:233]: Components should block for at most 30 ms.
+[13:32:46][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:46][V][ili9xxx:233]: Doing multiple write
+[13:32:46][V][ili9xxx:279]: Data write took 83ms
+[13:32:46][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:46][W][component:233]: Components should block for at most 30 ms.
+[13:32:47][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:47][V][ili9xxx:233]: Doing multiple write
+[13:32:47][V][ili9xxx:279]: Data write took 84ms
+[13:32:47][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:47][W][component:233]: Components should block for at most 30 ms.
+[13:32:48][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:48][V][ili9xxx:233]: Doing multiple write
+[13:32:48][V][ili9xxx:279]: Data write took 83ms
+[13:32:48][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:48][W][component:233]: Components should block for at most 30 ms.
+[13:32:49][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:49][V][ili9xxx:233]: Doing multiple write
+[13:32:49][V][ili9xxx:279]: Data write took 83ms
+[13:32:49][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:49][W][component:233]: Components should block for at most 30 ms.
+[13:32:50][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:50][V][ili9xxx:233]: Doing multiple write
+[13:32:50][V][ili9xxx:279]: Data write took 83ms
+[13:32:50][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:50][W][component:233]: Components should block for at most 30 ms.
+[13:32:51][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:51][V][ili9xxx:233]: Doing multiple write
+[13:32:51][V][ili9xxx:279]: Data write took 84ms
+[13:32:51][W][component:232]: Component display took a long time for an operation (100 ms).
+[13:32:51][W][component:233]: Components should block for at most 30 ms.
+[13:32:52][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:52][V][ili9xxx:233]: Doing multiple write
+[13:32:52][V][ili9xxx:279]: Data write took 83ms
+[13:32:52][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:52][W][component:233]: Components should block for at most 30 ms.
+[13:32:53][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:53][V][ili9xxx:233]: Doing multiple write
+[13:32:53][V][ili9xxx:279]: Data write took 84ms
+[13:32:53][W][component:232]: Component display took a long time for an operation (100 ms).
+[13:32:53][W][component:233]: Components should block for at most 30 ms.
+[13:32:54][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:54][V][ili9xxx:233]: Doing multiple write
+[13:32:54][V][ili9xxx:279]: Data write took 83ms
+[13:32:54][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:54][W][component:233]: Components should block for at most 30 ms.
+[13:32:55][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:55][V][ili9xxx:233]: Doing multiple write
+[13:32:55][V][ili9xxx:279]: Data write took 83ms
+[13:32:55][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:55][W][component:233]: Components should block for at most 30 ms.
+[13:32:56][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:56][V][ili9xxx:233]: Doing multiple write
+[13:32:56][V][ili9xxx:279]: Data write took 83ms
+[13:32:56][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:56][W][component:233]: Components should block for at most 30 ms.
+[13:32:57][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:57][V][ili9xxx:233]: Doing multiple write
+[13:32:57][V][ili9xxx:279]: Data write took 83ms
+[13:32:57][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:32:57][W][component:233]: Components should block for at most 30 ms.
+[13:32:58][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:58][V][ili9xxx:233]: Doing multiple write
+[13:32:58][V][ili9xxx:279]: Data write took 83ms
+[13:32:58][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:58][W][component:233]: Components should block for at most 30 ms.
+[13:32:59][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:32:59][V][ili9xxx:233]: Doing multiple write
+[13:32:59][V][ili9xxx:279]: Data write took 82ms
+[13:32:59][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:32:59][W][component:233]: Components should block for at most 30 ms.
+[13:33:00][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:00][V][ili9xxx:233]: Doing multiple write
+[13:33:00][V][ili9xxx:279]: Data write took 83ms
+[13:33:00][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:00][W][component:233]: Components should block for at most 30 ms.
+[13:33:01][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:01][V][ili9xxx:233]: Doing multiple write
+[13:33:01][V][ili9xxx:279]: Data write took 83ms
+[13:33:01][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:01][W][component:233]: Components should block for at most 30 ms.
+[13:33:02][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:02][V][ili9xxx:233]: Doing multiple write
+[13:33:02][V][ili9xxx:279]: Data write took 83ms
+[13:33:02][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:02][W][component:233]: Components should block for at most 30 ms.
+[13:33:03][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:03][V][ili9xxx:233]: Doing multiple write
+[13:33:03][V][ili9xxx:279]: Data write took 83ms
+[13:33:03][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:03][W][component:233]: Components should block for at most 30 ms.
+[13:33:04][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:04][V][ili9xxx:233]: Doing multiple write
+[13:33:04][V][ili9xxx:279]: Data write took 83ms
+[13:33:04][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:04][W][component:233]: Components should block for at most 30 ms.
+[13:33:05][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:05][V][ili9xxx:233]: Doing multiple write
+[13:33:05][V][ili9xxx:279]: Data write took 84ms
+[13:33:05][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:05][W][component:233]: Components should block for at most 30 ms.
+[13:33:06][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:06][V][ili9xxx:233]: Doing multiple write
+[13:33:06][V][ili9xxx:279]: Data write took 84ms
+[13:33:06][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:06][W][component:233]: Components should block for at most 30 ms.
+[13:33:07][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:07][V][ili9xxx:233]: Doing multiple write
+[13:33:07][V][ili9xxx:279]: Data write took 83ms
+[13:33:07][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:07][W][component:233]: Components should block for at most 30 ms.
+[13:33:08][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:08][V][ili9xxx:233]: Doing multiple write
+[13:33:08][V][ili9xxx:279]: Data write took 83ms
+[13:33:08][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:08][W][component:233]: Components should block for at most 30 ms.
+[13:33:09][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:09][V][ili9xxx:233]: Doing multiple write
+[13:33:09][V][ili9xxx:279]: Data write took 84ms
+[13:33:09][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:09][W][component:233]: Components should block for at most 30 ms.
+[13:33:10][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:10][V][ili9xxx:233]: Doing multiple write
+[13:33:10][V][ili9xxx:279]: Data write took 83ms
+[13:33:10][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:10][W][component:233]: Components should block for at most 30 ms.
+[13:33:11][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:11][V][ili9xxx:233]: Doing multiple write
+[13:33:11][V][ili9xxx:279]: Data write took 83ms
+[13:33:11][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:11][W][component:233]: Components should block for at most 30 ms.
+[13:33:12][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:12][V][ili9xxx:233]: Doing multiple write
+[13:33:12][V][ili9xxx:279]: Data write took 82ms
+[13:33:12][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:12][W][component:233]: Components should block for at most 30 ms.
+[13:33:13][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:13][V][ili9xxx:233]: Doing multiple write
+[13:33:13][V][ili9xxx:279]: Data write took 84ms
+[13:33:13][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:13][W][component:233]: Components should block for at most 30 ms.
+[13:33:14][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:14][V][ili9xxx:233]: Doing multiple write
+[13:33:14][V][ili9xxx:279]: Data write took 84ms
+[13:33:14][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:14][W][component:233]: Components should block for at most 30 ms.
+[13:33:15][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:15][V][ili9xxx:233]: Doing multiple write
+[13:33:15][V][ili9xxx:279]: Data write took 83ms
+[13:33:15][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:15][W][component:233]: Components should block for at most 30 ms.
+[13:33:16][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:16][V][ili9xxx:233]: Doing multiple write
+[13:33:16][V][ili9xxx:279]: Data write took 83ms
+[13:33:16][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:16][W][component:233]: Components should block for at most 30 ms.
+[13:33:17][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:17][V][ili9xxx:233]: Doing multiple write
+[13:33:17][V][ili9xxx:279]: Data write took 84ms
+[13:33:17][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:17][W][component:233]: Components should block for at most 30 ms.
+[13:33:18][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:18][V][ili9xxx:233]: Doing multiple write
+[13:33:18][V][ili9xxx:279]: Data write took 83ms
+[13:33:18][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:18][W][component:233]: Components should block for at most 30 ms.
+[13:33:19][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:19][V][ili9xxx:233]: Doing multiple write
+[13:33:19][V][ili9xxx:279]: Data write took 84ms
+[13:33:19][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:19][W][component:233]: Components should block for at most 30 ms.
+[13:33:20][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:20][V][ili9xxx:233]: Doing multiple write
+[13:33:20][V][ili9xxx:279]: Data write took 82ms
+[13:33:20][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:20][W][component:233]: Components should block for at most 30 ms.
+[13:33:21][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:21][V][ili9xxx:233]: Doing multiple write
+[13:33:21][V][ili9xxx:279]: Data write took 83ms
+[13:33:21][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:21][W][component:233]: Components should block for at most 30 ms.
+[13:33:22][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:22][V][ili9xxx:233]: Doing multiple write
+[13:33:22][V][ili9xxx:279]: Data write took 83ms
+[13:33:22][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:22][W][component:233]: Components should block for at most 30 ms.
+[13:33:23][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:23][V][ili9xxx:233]: Doing multiple write
+[13:33:23][V][ili9xxx:279]: Data write took 83ms
+[13:33:23][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:23][W][component:233]: Components should block for at most 30 ms.
+[13:33:24][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:24][V][ili9xxx:233]: Doing multiple write
+[13:33:24][V][ili9xxx:279]: Data write took 83ms
+[13:33:24][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:24][W][component:233]: Components should block for at most 30 ms.
+[13:33:25][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:25][V][ili9xxx:233]: Doing multiple write
+[13:33:25][V][ili9xxx:279]: Data write took 82ms
+[13:33:25][W][component:232]: Component display took a long time for an operation (97 ms).
+[13:33:25][W][component:233]: Components should block for at most 30 ms.
+[13:33:26][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:26][V][ili9xxx:233]: Doing multiple write
+[13:33:26][V][ili9xxx:279]: Data write took 83ms
+[13:33:26][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:26][W][component:233]: Components should block for at most 30 ms.
+[13:33:27][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:27][V][ili9xxx:233]: Doing multiple write
+[13:33:27][V][ili9xxx:279]: Data write took 83ms
+[13:33:27][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:27][W][component:233]: Components should block for at most 30 ms.
+[13:33:28][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:28][V][ili9xxx:233]: Doing multiple write
+[13:33:28][V][ili9xxx:279]: Data write took 84ms
+[13:33:28][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:28][W][component:233]: Components should block for at most 30 ms.
+[13:33:29][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:29][V][ili9xxx:233]: Doing multiple write
+[13:33:29][V][ili9xxx:279]: Data write took 83ms
+[13:33:29][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:29][W][component:233]: Components should block for at most 30 ms.
+[13:33:30][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:30][V][ili9xxx:233]: Doing multiple write
+[13:33:30][V][ili9xxx:279]: Data write took 83ms
+[13:33:30][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:30][W][component:233]: Components should block for at most 30 ms.
+[13:33:31][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:31][V][ili9xxx:233]: Doing multiple write
+[13:33:31][V][ili9xxx:279]: Data write took 84ms
+[13:33:31][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:31][W][component:233]: Components should block for at most 30 ms.
+[13:33:32][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:32][V][ili9xxx:233]: Doing multiple write
+[13:33:32][V][ili9xxx:279]: Data write took 83ms
+[13:33:32][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:32][W][component:233]: Components should block for at most 30 ms.
+[13:33:33][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:33][V][ili9xxx:233]: Doing multiple write
+[13:33:33][V][ili9xxx:279]: Data write took 82ms
+[13:33:33][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:33][W][component:233]: Components should block for at most 30 ms.
+[13:33:34][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:34][V][ili9xxx:233]: Doing multiple write
+[13:33:34][V][ili9xxx:279]: Data write took 83ms
+[13:33:34][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:34][W][component:233]: Components should block for at most 30 ms.
+[13:33:35][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:35][V][ili9xxx:233]: Doing multiple write
+[13:33:35][V][ili9xxx:279]: Data write took 84ms
+[13:33:35][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:35][W][component:233]: Components should block for at most 30 ms.
+[13:33:36][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:36][V][ili9xxx:233]: Doing multiple write
+[13:33:36][V][ili9xxx:279]: Data write took 83ms
+[13:33:36][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:36][W][component:233]: Components should block for at most 30 ms.
+[13:33:37][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:37][V][ili9xxx:233]: Doing multiple write
+[13:33:37][V][ili9xxx:279]: Data write took 83ms
+[13:33:37][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:37][W][component:233]: Components should block for at most 30 ms.
+[13:33:38][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:38][V][ili9xxx:233]: Doing multiple write
+[13:33:38][V][ili9xxx:279]: Data write took 83ms
+[13:33:38][W][component:232]: Component display took a long time for an operation (98 ms).
+[13:33:38][W][component:233]: Components should block for at most 30 ms.
+[13:33:39][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:39][V][ili9xxx:233]: Doing multiple write
+[13:33:39][V][ili9xxx:279]: Data write took 82ms
+[13:33:39][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:39][W][component:233]: Components should block for at most 30 ms.
+[13:33:40][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:40][V][ili9xxx:233]: Doing multiple write
+[13:33:40][V][ili9xxx:279]: Data write took 83ms
+[13:33:40][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:40][W][component:233]: Components should block for at most 30 ms.
+[13:33:41][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:41][V][ili9xxx:233]: Doing multiple write
+[13:33:41][V][ili9xxx:279]: Data write took 84ms
+[13:33:41][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:41][W][component:233]: Components should block for at most 30 ms.
+[13:33:42][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:42][V][ili9xxx:233]: Doing multiple write
+[13:33:42][V][ili9xxx:279]: Data write took 82ms
+[13:33:42][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:42][W][component:233]: Components should block for at most 30 ms.
+[13:33:43][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:43][V][ili9xxx:233]: Doing multiple write
+[13:33:43][V][ili9xxx:279]: Data write took 83ms
+[13:33:43][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:43][W][component:233]: Components should block for at most 30 ms.
+[13:33:44][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:44][V][ili9xxx:233]: Doing multiple write
+[13:33:44][V][ili9xxx:279]: Data write took 83ms
+[13:33:44][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:44][W][component:233]: Components should block for at most 30 ms.
+[13:33:45][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:45][V][ili9xxx:233]: Doing multiple write
+[13:33:45][V][ili9xxx:279]: Data write took 83ms
+[13:33:45][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:45][W][component:233]: Components should block for at most 30 ms.
+[13:33:46][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:46][V][ili9xxx:233]: Doing multiple write
+[13:33:46][V][ili9xxx:279]: Data write took 82ms
+[13:33:46][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:46][W][component:233]: Components should block for at most 30 ms.
+[13:33:47][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:47][V][ili9xxx:233]: Doing multiple write
+[13:33:47][V][ili9xxx:279]: Data write took 84ms
+[13:33:47][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:47][W][component:233]: Components should block for at most 30 ms.
+[13:33:48][V][ili9xxx:225]: Start display(xlow:0, ylow:0, xhigh:239, yhigh:239, width:240, height:240, mode=8, 18bit=0, sw_time=51680us, mw_time=137480us)
+[13:33:48][V][ili9xxx:233]: Doing multiple write
+[13:33:48][V][ili9xxx:279]: Data write took 84ms
+[13:33:48][W][component:232]: Component display took a long time for an operation (99 ms).
+[13:33:48][W][component:233]: Components should block for at most 30 ms.
