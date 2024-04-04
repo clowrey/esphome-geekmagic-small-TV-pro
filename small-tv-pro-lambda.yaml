@@ -1,0 +1,173 @@
+esphome:
+  name: geekmagic-hilo
+  friendly_name: geekmagic-hilo
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: VERBOSE
+  logs:
+    #lvgl.component: VERBOSE
+    light.component: ERROR
+    light.output: ERROR
+    number.component: ERROR
+    ledc.output: ERROR
+    template.number: ERROR
+
+  baud_rate: 0 #no hardware serial connected to USB - unless using the internal programming header
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: 
+
+ota:
+  password: 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Geekmagic-Hilo Fallback Hotspot"
+    password: 
+
+captive_portal:
+
+external_components:
+ - source: github://clydebarrow/esphome@lvgl
+   components: [ lvgl ]
+
+# Define a PWM output on the ESP32
+output:
+  - platform: ledc
+    pin: GPIO25
+    inverted: True
+    id: backlight_pwm
+
+# Define a monochromatic, dimmable light for the backlight
+light:
+  - platform: monochromatic
+    output: backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    restore_mode: ALWAYS_ON
+
+
+esp32_touch:
+ # setup_mode: true
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  interface: hardware
+  id: spihwd
+
+color:
+  - id: my_red
+    red: 100%
+    green: 0%
+    blue: 0%
+  - id: my_orange
+    red: 100%
+    green: 50%
+    blue: 0%
+  - id: my_yellow
+    red: 100%
+    green: 100%
+    blue: 0%
+  - id: my_green
+    red: 0%
+    green: 100%
+    blue: 0%
+  - id: my_blue
+    red: 0%
+    green: 0%
+    blue: 100%
+  - id: my_teal
+    red: 0%
+    green: 100%
+    blue: 100%
+  - id: my_gray
+    red: 70%
+    green: 70%
+    blue: 70%
+  - id: my_white
+    red: 100%
+    green: 100%
+    blue: 100%
+  - id: my_black
+    red: 0%
+    green: 0%
+    blue: 0%
+
+font:
+  - file: "gfonts://Roboto"
+    id: font_48
+    size: 48
+  - file: "gfonts://Roboto"
+    id: font_36
+    size: 36
+  - file: "gfonts://Roboto"
+    id: font_24
+    size: 24
+  - file: "gfonts://Roboto"
+    id: font_12
+    size: 12
+
+display:
+  - platform: ili9xxx
+    id: lcd_display
+    model: st7789v
+    spi_id: spihwd
+    data_rate: 20MHz #oringal device uses 20mhz - 40 is default and works - does not work at 80mhz
+    #cs_pin: GPIO03 #CS pin is connected to gnd I believe
+    dc_pin: GPIO02
+    reset_pin: GPIO04
+    spi_mode: MODE3   #since no cs pin default is mode0
+    dimensions:
+      width: 240
+      height: 240
+      offset_height: 0
+      offset_width: 0
+    invert_colors: true
+    #update_interval: never
+    #auto_clear_enabled: false
+    lambda: |-
+      it.rectangle(0,  0, it.get_width(), it.get_height(), id(my_blue));
+      it.rectangle(0, 20, it.get_width(), it.get_height(), id(my_blue));   // header bar
+      
+      //it.print(5, 5, id(font_12), id(my_yellow), TextAlign::TOP_LEFT, "ESPHome");
+      it.strftime(5, 5, id(font_12), id(my_yellow), TextAlign::TOP_LEFT, "%H:%M:%S", id(time_comp).now());
+      
+      it.print((it.get_width() / 2), (240 / 6.5) * 1 - 8, id(font_12), id(my_yellow), TextAlign::CENTER, "Testing");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 1 + 9, id(font_24), id(my_yellow), TextAlign::CENTER, "%.2fC", 0.000);
+      it.line(0, (240 / 6.5) * 1 + 18, it.get_width(), (240 / 6.5) * 1 + 18, id(my_blue));
+    
+      it.print((it.get_width() / 2), (240 / 6.5) * 2 - 8, id(font_12), id(my_green), TextAlign::CENTER, "Testing 1");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 2 + 9, id(font_24), id(my_green), TextAlign::CENTER, "%.2fC", "1.111");
+      it.line(0, (240 / 6.5) * 2 + 18, it.get_width(), (240 / 6.5) * 2 + 18, id(my_blue));
+      
+      it.print((it.get_width() / 2), (240 / 6.5) * 3 - 8, id(font_12), id(my_orange), TextAlign::CENTER, "Testing 2");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 3 + 9, id(font_24), id(my_orange), TextAlign::CENTER, "%.2fC", 2.222);
+      it.line(0, (240 / 6.5) * 3 + 18, it.get_width(), (240 / 6.5) * 3 + 18, id(my_blue));
+      
+      it.print((it.get_width() / 2), (240 / 6.5) * 4 - 8, id(font_12), id(my_gray), TextAlign::CENTER, "Testing 3");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 4 + 9, id(font_24), id(my_gray), TextAlign::CENTER, "%.2fC", "3.333");
+      it.line(0, (240 / 6.5) * 4 + 18, it.get_width(), (240 / 6.5) * 4 + 18, id(my_blue));
+      
+      it.print((it.get_width() / 2), (240 / 6.5) * 5 - 8, id(font_12), id(my_teal), TextAlign::CENTER, "Testing 4");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 5 + 9, id(font_24), id(my_teal), TextAlign::CENTER, "%.2fC", 4.444);
+      it.line(0, (240 / 6.5) * 5 + 18, it.get_width(), (240 / 6.5) * 5 + 18, id(my_blue));
+      
+      it.print((it.get_width() / 2), (240 / 6.5) * 6 - 8, id(font_12), id(my_red), TextAlign::CENTER, "Testing 5");
+      it.printf((it.get_width() / 2), (240 / 6.5) * 6 + 9, id(font_24), id(my_red), TextAlign::CENTER, "%.2fC", 5.555);
+
+time:
+  - platform: sntp
+    id: time_comp
