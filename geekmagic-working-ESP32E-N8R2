@@ -1,0 +1,425 @@
+esphome:
+  name: geekmagic-working
+  friendly_name: geekmagic-working
+  on_boot:
+    then:
+      - light.turn_on:
+          id: back_light
+          brightness: 55%
+
+esp32:
+  board: esp32dev
+  flash_size: 8MB
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: DEBUG
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: 
+
+ota:
+  password: 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/clydebarrow/esphome
+      ref: fd15094c0860df23d532881df36cfd16c7da1091 #previous commit - wont be needed in the future
+    components: [ lvgl ] 
+
+debug:
+  update_interval: 5s
+
+text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+    reset_reason:
+      name: "Reset Reason"
+
+# Define a PWM output on the ESP32
+output:
+  - platform: ledc
+    pin: GPIO25
+    inverted: True
+    id: backlight_pwm
+
+# Define a monochromatic, dimmable light for the backlight
+light:
+  - platform: monochromatic
+    output: backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    restore_mode: ALWAYS_ON
+
+esp32_touch:
+ # setup_mode: true
+
+binary_sensor:
+  - platform: esp32_touch
+    #name: "Touch Button"
+    pin: GPIO32
+    threshold: 1375
+    id: gp32
+    internal: true
+    on_click:
+      then:
+        lvgl.page.next:
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  interface: hardware
+  id: spihwd
+
+display:
+  - platform: ili9xxx
+    id: lcd_display
+    model: st7789v
+    spi_id: spihwd
+    #data_rate: 20MHz #oringal device uses 20mhz - 40 is default and works - does not work at 80mhz
+    #cs_pin: GPIO03 #CS pin is connected to gnd I believe
+    dc_pin: GPIO02
+    reset_pin: GPIO04
+    spi_mode: MODE3   #since no cs pin default is mode0
+    dimensions:
+      width: 240
+      height: 240
+      offset_height: 0
+      offset_width: 0
+    invert_colors: true
+    update_interval: never
+    auto_clear_enabled: false
+    
+time:
+  - platform: sntp
+    id: time_comp
+
+number:
+  - platform: template
+    initial_value: 0
+    id: counting_number
+    internal: True
+    min_value: -10
+    max_value: 10
+    step: 1
+    optimistic: True
+
+sensor:
+  - platform: wifi_signal
+    # name: "WiFi Signal Sensor"
+    internal: True
+    id: wifi_signal_sensor
+    update_interval: 1s
+  - platform: uptime
+    id: uptime_counter
+    update_interval: 1s
+    accuracy_decimals: 0
+    on_raw_value:
+      then:
+        - number.increment:
+            id: counting_number
+            cycle: True
+        - script.execute: update_display
+  - platform: debug
+    free:
+      name: "Heap Free"
+    block:
+      name: "Heap Max Block"
+    loop_time:
+      name: "Loop Time"
+    psram:
+      name: "Free PSRAM"
+  - platform: homeassistant
+    id: ha_battery_power_net
+    entity_id: sensor.emporia_garage_total_power
+    #internal: True
+    on_value_range:
+      - above: 0.0
+        then:
+          - lvgl.label.update:
+              id: battery_charging_discharging
+              text_color: 0x00FF00
+              text: "charging"
+          - lvgl.label.update:
+              id: label_battery_power
+              text_color: 0x00FF00
+      - below: 0.0
+        then:
+          - lvgl.label.update:
+              id: battery_charging_discharging
+              text_color: 0xFF0000
+              text: "discharging"
+          - lvgl.label.update:
+              id: label_battery_power
+              text_color: 0xFF0000
+
+script:
+  - id: update_display
+    then:
+      - lvgl.indicator.line.update:
+          id: indicator_battery_power
+          value: !lambda return id(counting_number).state * 10; #multiply by 10 because LVGL meter only supports integers
+      - lvgl.label.update:
+          id: label_battery_power
+          text:
+            format: "%.1fkW"
+            args: [ 'id(ha_battery_power_net).state' ]
+      - lvgl.label.update:
+          id: label_battery_soc
+          text:
+            format: "%.1f%%"
+            args: [ 'id(counting_number).state' ]
+      - lvgl.label.update:
+          id: label_house_power
+          text:
+            format: "%.1fkW"
+            args: [ 'id(ha_battery_power_net).state' ]
+      - lvgl.label.update:
+          id: label_hydro_power
+          text:
+            format: "%.1fkW"
+            args: [ 'id(counting_number).state' ]
+      - lvgl.label.update:
+          id: label_solar_power
+          text:
+            format: "%.1fkW"
+            args: [ 'id(ha_battery_power_net).state' ]
+      - lvgl.label.update:
+          id: label_dump_load
+          text:
+            format: "%.1fkW"
+            args: [ 'id(ha_battery_power_net).state' ]
+
+
+      #- lvgl.img.update:
+          #id: img_power
+          #src: power_icon
+          #img_recolor: 0xFFF000 #mixes this color with the base image
+          #img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+          #bg_color: 0xFFFFFF          
+
+image:
+  - file: mdi:car-battery
+    id: icon_battery
+    resize: 35x35
+  - file: mdi:home-lightning-bolt-outline
+    id: icon_house
+    resize: 35x35
+  - file: mdi:hydro-power
+    id: icon_hydro
+    resize: 35x35
+  - file: mdi:sun-wireless-outline
+    id: icon_solar
+    resize: 35x35
+  - file: mdi:resistor
+    id: icon_dump_load
+    resize: 35x35
+  - file: mdi:navigation
+    id: icon_pointer
+    resize: 40x20
+    # mdi:sun-wireless-outline
+    # mdi:solar-power
+    # mdi:battery-charging-outline
+    # mdi:battery-arrow-up-outline
+    # mdi:battery-arrow-down-outline
+    # mdi:lightning-bolt
+
+lvgl:
+    log_level: INFO
+    color_depth: 16
+    bg_color: 0
+    border_width: 0
+    outline_width: 0
+    #shadow_width: 0
+    text_font: unscii_16
+    align: center
+    style_definitions:
+      - id: font_style
+        text_font: MONTSERRAT_28
+        #text_font: unscii_16
+        align: center
+        text_color: 0xFFFFFF
+        #bg_opa: cover
+        bg_opa: TRANSP
+        bg_color: 0
+        radius: 4
+        pad_all: 2 
+      - id: details_style
+        text_font: MONTSERRAT_16
+        align: center
+        text_color: 0xFFFFFF
+        #bg_opa: cover
+        bg_opa: TRANSP
+        bg_color: 0
+        radius: 4
+        pad_all: 2 
+    page_wrap: true
+    pages:
+      - id: main_page
+        widgets:
+          - obj: # Meter
+              height: 240 # needed to be explicitily defined for my round display to not have weird border line overlapping gauge
+              width: 240
+              align: center
+              bg_color: 0
+              #bg_opa: TRANSP
+              border_width: 0
+              outline_width: 0
+              #shadow_width: 0
+              pad_all: 0
+              scrollbar_mode: "off"
+              clip_corner: true
+              radius: 120
+              widgets:
+                - meter: # Gradient color  arc
+                    height: 100%
+                    width: 100%
+                    border_width: 0
+                    outline_width: 0
+                    align: center
+                    bg_color: 0
+                    #bg_opa: TRANSP
+                    scales:
+                      angle_range: 180 # sets the total angle to 180 = starts mid left and ends mid right
+                      range_from: -100
+                      range_to: 100
+                      ticks:
+                        count: 0
+                      indicators:
+                        - line:
+                            id: indicator_battery_power
+                            width: 8
+                            color: 0xFFFFFF
+                            r_mod: 20 #increase radius to maximize screen utilization
+                            value: 0 # initial value
+                        #- img:
+                        #    src: icon_house #doesnt seem to be fully implemented yet
+                        #    id: indicator_battery_power
+                        #    value: 0 # initial value
+                        - arc:
+                            color: 0xFF3000
+                            r_mod: 20 #increase radius to maximize screen utilization
+                            width: 26
+                            start_value: -100
+                            end_value: 0
+                        - arc:
+                            color: 0x00FF00
+                            r_mod: 20
+                            width: 26
+                            start_value: 0
+                            end_value: 100
+                - obj: # to erase middle part of meter indicator line
+                    height: 180
+                    width: 180
+                    radius: 90 #should be half of the height, width to make a circle
+                    align: center
+                    border_width: 0
+                    pad_all: 0
+                    bg_color: 0
+                - label: # gauge lower and higher range indicators
+                    styles: font_style
+                    text_font: MONTSERRAT_18 # override font size
+                    y: 10 #positive = lower
+                    x: -102
+                    text: "-10"
+                - label:
+                    styles: font_style
+                    text_font: MONTSERRAT_18 # override font size
+                    y: 10
+                    x: 102
+                    text: "+10"
+                - label:
+                    styles: font_style
+                    id: label_battery_power
+                    y: -70 #negative = higher
+                - label:
+                    styles: font_style
+                    id: battery_charging_discharging
+                    hidden: true #turn off for now
+                    y: -35 
+                - label:
+                    styles: font_style
+                    #text_font: MONTSERRAT_32 # override font size
+                    id: label_battery_soc
+                    y: -38
+                    x: 30 #positive = to the right of center
+                - label:
+                    styles: font_style
+                    id: label_house_power
+                    text_color: 0xffffff
+                    y: -6 #positive = below center
+                    x: 30 #positive = to the right of center
+                - label:
+                    styles: font_style
+                    id: label_hydro_power
+                    text_color: 0x1e90ff
+                    y: 26 #positive = below center
+                    x: 30 #positive = to the right of center
+                - label:
+                    styles: font_style
+                    id: label_solar_power
+                    text_color: 0xffff00
+                    y: 58 #positive = below center
+                    x: 30 #positive = to the right of center
+                - label:
+                    styles: font_style
+                    id: label_dump_load
+                    text_color: 0xff0000
+                    y: 90 #positive = below center
+                    x: 30 #positive = to the right of center
+                - img:
+                    src: icon_battery
+                    align: center
+                    img_recolor: 0xffffff
+                    img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+                    y: -38 #positive = below center
+                    x: -40 #negative = to the left
+                - img:
+                    src: icon_house
+                    align: center
+                    img_recolor: 0xffffff
+                    img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+                    y: -6 #positive = below center
+                    x: -40 #negative = to the left
+                - img:
+                    src: icon_hydro
+                    #id: img_hydro
+                    align: center
+                    img_recolor: 0x1e90ff
+                    img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+                    y: 26 #positive = below center
+                    x: -40 #negative = to the left
+                - img:
+                    src: icon_solar
+                    #id: img_hydro
+                    align: center
+                    img_recolor: 0xffff00
+                    img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+                    y: 58 #positive = below center
+                    x: -40 #negative = to the left
+                - img:
+                    src: icon_dump_load
+                    #id: img_hydro
+                    align: center
+                    img_recolor: 0xff0000
+                    img_recolor_opa: 100% #opacity defaults to 0% = must set this for recolor to take effect
+                    y: 90 #positive = below center
+                    x: -40 #negative = to the left
+      - id: advanced
+        widgets:
+          - label:
+              styles: font_style
+              text_font: MONTSERRAT_18 # override font size
+              y: 0 #negative = higher
+              x: 0
+              text: "Settings Page"
